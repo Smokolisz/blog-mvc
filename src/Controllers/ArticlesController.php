@@ -8,8 +8,8 @@ use App\Models\Category;
 
 class ArticlesController extends Controller {
 
-    public function index() {
-
+    public function index()
+    {
         $articles = Article::get();
 
         return $this->view('articles/index', [
@@ -17,8 +17,8 @@ class ArticlesController extends Controller {
         ]);
     }
 
-    public function show() {
-
+    public function show()
+    {
         if(!isset($_GET['id']) || $_GET['id'] == null || $_GET['id'] == '') {
             header('Location: /artykuly');
             exit;
@@ -36,8 +36,8 @@ class ArticlesController extends Controller {
         ]);
     }
 
-    public function create() {
-
+    public function create()
+    {
         if(!User::isLoggedIn()) {
             header('Location: /logowanie');
             exit;
@@ -50,8 +50,8 @@ class ArticlesController extends Controller {
         ]);
     }
 
-    public function store() {
-
+    public function store()
+    {
         if(!User::isLoggedIn()) {
             header('Location: /logowanie');
             exit;
@@ -70,8 +70,8 @@ class ArticlesController extends Controller {
 
     }
 
-    public function edit() {
-
+    public function edit()
+    {
         if(!User::isLoggedIn()) {
             header('Location: /logowanie');
             exit;
@@ -95,8 +95,8 @@ class ArticlesController extends Controller {
         ]);
     }
 
-    public function update() {
-
+    public function update()
+    {
         if(!User::isLoggedIn()) {
             header('Location: /logowanie');
             exit;
@@ -121,7 +121,8 @@ class ArticlesController extends Controller {
         exit;
     }
 
-    public function destroy() {
+    public function destroy()
+    {
         if(!User::isLoggedIn()) {
             header('Location: /logowanie');
             exit;

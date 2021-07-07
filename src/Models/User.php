@@ -8,7 +8,8 @@ class User extends Model {
 
     public static $tablename = 'users';
 
-    public static function isLoggedIn() {
+    public static function isLoggedIn()
+    {
         if(isset($_SESSION['id']) && $_SESSION['id'] != null) {
             return true;
         }
@@ -16,7 +17,8 @@ class User extends Model {
         return false;
     }
 
-    public function login($email, $password) {
+    public function login($email, $password)
+    {
         $stmt = self::$db->prepare('SELECT * FROM users WHERE email=:email');
         $stmt->execute(['email' => $email]);
         $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
@@ -36,7 +38,8 @@ class User extends Model {
         return false;
     }
 
-    public function validateRegister($username, $email, $password) {
+    public function validateRegister($username, $email, $password)
+    {
         //minimum password length
         if(strlen($password) < 6) {
             $_SESSION['passRegErr'] = 'Hasło musi mieć minimum 6 znaków';
@@ -65,8 +68,8 @@ class User extends Model {
         return true;
     }
 
-    public function register($username, $email, $password) {
-        
+    public function register($username, $email, $password)
+    {
         if(!$this->validateRegister($username, $email, $password)) {
             return false;
         }

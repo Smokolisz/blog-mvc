@@ -8,8 +8,8 @@ class Article extends Model {
 
     public $id;
     
-    public function validate($title, $text, $category, $status) {
-        
+    public function validate($title, $text, $category, $status)
+    {
         if(!is_string($title) || !is_string($text) || $category==null || $status == null) {
             return false;
         }
@@ -17,8 +17,8 @@ class Article extends Model {
         return true;
     }
 
-    public function create($title, $text, $category, $status) {
-
+    public function create($title, $text, $category, $status)
+    {
         if(!$this->validate($title, $text, $category, $status)) {
             return false;
         }
@@ -31,8 +31,8 @@ class Article extends Model {
         return true;
     }
 
-    public function update($id, $title, $text, $user, $category, $status) {
-
+    public function update($id, $title, $text, $user, $category, $status)
+    {
         if(!$this->validate($title, $text, $category, $status)) {
             return false;
         }
@@ -45,7 +45,8 @@ class Article extends Model {
         return true;
     }
 
-    public function destroy($id) {
+    public function destroy($id)
+    {
         $stmt = self::$db->prepare('DELETE FROM articles WHERE id=:id');
         $stmt->execute(['id' => $id]);
     }

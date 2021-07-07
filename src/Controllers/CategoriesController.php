@@ -7,8 +7,8 @@ use App\Models\User;
 
 class CategoriesController extends Controller {
 
-    public function index() {
-
+    public function index()
+    {
         $categories = Category::get();
 
         return $this->view('categories/index', [
@@ -16,8 +16,8 @@ class CategoriesController extends Controller {
         ]);
     }
 
-    public function create() {
-
+    public function create()
+    {
         if(!User::isLoggedIn()) {
             header('Location: /logowanie');
             exit;
@@ -26,8 +26,8 @@ class CategoriesController extends Controller {
         return $this->view('categories/create');
     }
 
-    public function store() {
-
+    public function store()
+    {
         if(!User::isLoggedIn()) {
             header('Location: /logowanie');
             exit;
@@ -47,8 +47,8 @@ class CategoriesController extends Controller {
         exit;
     }
 
-    public function edit() {
-
+    public function edit()
+    {
         if(!User::isLoggedIn()) {
             header('Location: /logowanie');
             exit;
@@ -68,8 +68,8 @@ class CategoriesController extends Controller {
         ]);
     }
 
-    public function update() {
-
+    public function update()
+    {
         if(!User::isLoggedIn()) {
             header('Location: /logowanie');
             exit;
@@ -90,8 +90,8 @@ class CategoriesController extends Controller {
         exit;
     }
 
-    public function destroy() {
-
+    public function destroy()
+    {
         if(!User::isLoggedIn()) {
             header('Location: /logowanie');
             exit;

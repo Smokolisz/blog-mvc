@@ -5,6 +5,7 @@ session_start();
 require_once realpath("vendor/autoload.php");
 require_once "web.php";
 
+new \App\Database\Database;
 
 $url_route = explode('?', $_SERVER['REQUEST_URI'])[0];
 

@@ -8,8 +8,8 @@ class Category extends Model {
 
     public $id;
 
-    public function validate($name) {
-        
+    public function validate($name)
+    {
         if(!is_string($name) || $name == null || $name == '') {
             return false;
         }
@@ -17,8 +17,8 @@ class Category extends Model {
         return true;
     }
 
-    public function create($name) {
-
+    public function create($name)
+    {
         if(!$this->validate($name)) {
             return false;
         }
@@ -31,8 +31,8 @@ class Category extends Model {
         return true;
     }
 
-    public function update($name, $id) {
-
+    public function update($name, $id)
+    {
         if(!$this->validate($name)) {
             return false;
         }
@@ -43,7 +43,8 @@ class Category extends Model {
         return true;
     }
     
-    public function destroy($id) {
+    public function destroy($id)
+    {
         $stmt = self::$db->prepare('DELETE FROM categories WHERE id=:id');
         $stmt->execute(['id' => $id]);
     }

@@ -1,6 +1,6 @@
 <?php
 
 $dbhost = 'localhost';
-$dbname = 'rekrutacja';
+$dbname = 'blog-mvc';
 $dbuser = 'root';
 $dbpass = '';
